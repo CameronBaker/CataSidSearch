@@ -1,0 +1,13 @@
+#!/bin/bash
+
+while read line
+do
+	name=$line
+	./css_script.py --pdb_ids $name --cutoff_score 0.998 --email cdb@rit.edu --job_id $name
+	tmp=".csv"
+	wget http://mvirdb1.llnl.gov/static_catsid/batch_results/cdb@rit.edu__$name$tmp
+done < $1
+
+wget http://mvirdb1.llnl.gov/static_catsid/batch_results/cdb@rit.edu__$name.csv
+
+

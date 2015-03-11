@@ -49,3 +49,4 @@ readmotifs <- function(){
 }
 
 df <- readmotifs()
+write.csv(df,"motifhits.csv")
